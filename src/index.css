@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-ink: #07080a;
+  --color-panel: #0d0f12;
+  --color-panel-2: #13161b;
+  --color-panel-3: #1b2027;
+  --color-accent: #c9f73a;
+  --color-hazard: #ffb224;
+  --color-danger: #ff5151;
+  --color-mist: #9aa3ad;
+  --color-smoke: #59626c;
+  --color-line: #ffffff14;
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: #eceff3;
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #0a0c05;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0c0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #23282f;
+  border-radius: 8px;
+  border: 2px solid #0a0c0e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #39414b;
+}
+
+/* outlined display text */
+.text-outline {
+  -webkit-text-stroke: 1.5px #ffffff2e;
+  color: transparent;
+}
+.text-outline-accent {
+  -webkit-text-stroke: 1.5px #c9f73a66;
+  color: transparent;
+}
+
+/* blueprint grid backdrop */
+.bg-blueprint {
+  background-image: linear-gradient(#ffffff07 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff07 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.bg-diag {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #ffffff09 0px,
+    #ffffff09 1px,
+    transparent 1px,
+    transparent 9px
+  );
+}
+
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 98%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 98%);
+}
